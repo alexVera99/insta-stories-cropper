@@ -10,6 +10,11 @@ For instance, imagine you have this video:
   <img src="videos/demo/video_demo_1.gif" alt="Video by Assad Tanoli from Pexels"/>
 </p>
 
+Then, the output should be this video:
+<p align="center">
+  <img src="videos/demo/video_demo_1_cropped.gif" alt="Video by Assad Tanoli from Pexels. It has been cropped with a ratio of 9:16."/>
+</p>
+
 # Set up
 
 
