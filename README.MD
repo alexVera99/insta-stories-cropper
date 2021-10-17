@@ -15,6 +15,8 @@ Then, the output should be this video:
   <img style="height: 25em;" src="videos/demo/video_demo_1_cropped.gif" alt="Video by Assad Tanoli from Pexels. It has been cropped with a ratio of 9:16."/>
 </p>
 
+Video by Assad Tanoli from [Pexels](https://www.pexels.com/video/close-up-video-of-a-baby-5889561/)
+
 # Set up
 To facilitate its use, I have built a bash script called `setup.sh`. This will install python virtualenv to create a virtual environment where we will install everything we need. Check the file `requirements.txt` to know which python libraries we are using in the project.
 
