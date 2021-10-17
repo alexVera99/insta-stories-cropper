@@ -1,4 +1,4 @@
-class CropModule:
+class Cropper:
 
     def findCropSize(self, width, height, img_width, img_height):
         ratio = width / height

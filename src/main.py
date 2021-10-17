@@ -1,6 +1,6 @@
-import FaceDetectionModule
+import faceDetector
 import cv2
-import CropModule
+import cropper
 import numpy as np
 from timeCoherenceCorrector import TimeCoherenceCorrector
 
@@ -13,11 +13,11 @@ c_img = [int(w_img//2), int(h_img//2)]
 
 # Finding the size of the cropping given some ratio
 ratio = [9, 16] # [w, h]
-cropper = CropModule.CropModule()
+cropper = cropper.Cropper()
 cropper.findCropSize(ratio[0], ratio[1], w_img, h_img)
 
 # Initializing the face detector
-detector = FaceDetectionModule.faceDetector()
+detector = faceDetector.faceDetector()
 
 # Time consistency parameters
 th = 50
