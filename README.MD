@@ -7,7 +7,7 @@ So, here it is. This project aims to crop a video following faces. In fact, it c
 
 For instance, imagine you have this video:
 <p align="center">
-  <img src="videos/demo/video_demo_1.gif" alt="Source video"/>
+  <img src="videos/demo/video_demo_1.gif" alt="Video by Assad Tanoli from Pexels"/>
 </p>
 
 # Set up
