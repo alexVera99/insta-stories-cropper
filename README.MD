@@ -6,7 +6,6 @@ But, the point is that manually editing a video to follow faces is not a nice ta
 So, here it is. This project aims to crop a video following faces. In fact, it can be used to any w:h ratio, where w is width and h is height.
 
 For instance, imagine you have this video:
-![video](videos/demo/video)
 <p align="center">
   <img src="videos/demo/video_demo_1.gif" alt="Source video"/>
 </p>
