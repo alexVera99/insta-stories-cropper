@@ -1,11 +1,8 @@
 # Mac files
 *.ds_store
 
-# Videos
-*.mp4
-
 # Video folder
-/videos
+/videos/large_videos
 
 # pycache
 /__pycache__
