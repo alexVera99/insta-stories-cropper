@@ -7,9 +7,10 @@ from timeCoherenceCorrector import TimeCoherenceCorrector
 # Parameters
 ratio = [9, 16] # [w, h]
 th = 50
+filename = "videos/1.mp4"
 
 # Capturing the first frame
-cap = cv2.VideoCapture("videos/1.mp4")
+cap = cv2.VideoCapture(filename)
 success, img = cap.read()
 # Capturing some frame information
 h_img, w_img, c_img = img.shape
