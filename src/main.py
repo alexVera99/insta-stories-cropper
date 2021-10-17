@@ -4,6 +4,10 @@ import cropper
 import numpy as np
 from timeCoherenceCorrector import TimeCoherenceCorrector
 
+# Parameters
+ratio = [9, 16] # [w, h]
+th = 50
+
 # Capturing the first frame
 cap = cv2.VideoCapture("videos/1.mp4")
 success, img = cap.read()
@@ -12,16 +16,14 @@ h_img, w_img, c_img = img.shape
 c_img = [int(w_img//2), int(h_img//2)]
 
 # Finding the size of the cropping given some ratio
-ratio = [9, 16] # [w, h]
 cropper = cropper.Cropper()
 cropper.findCropSize(ratio[0], ratio[1], w_img, h_img)
 
+# Time coherence corrector
+corrector = TimeCoherenceCorrector(c_img, th)
+
 # Initializing the face detector
 detector = faceDetector.faceDetector()
-
-# Time consistency parameters
-th = 50
-corrector = TimeCoherenceCorrector(c_img, th)
 
 while True:
     if(not success):
