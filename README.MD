@@ -1,9 +1,11 @@
 # Description
-This project borns while using the videos in Spotify. You may have seen that while listening some songs, the original video of the song appears also. The point is that such videos where not edited for 9:16 ratio displays (in other words, mobile displays in vertical). And, those videos were showing the faces of the people that were in the video singing. 
+This project borns while using Spotify. You may have seen that while listening some songs, the original video of the song appears also. The point is that such videos where not edited for 9:16 ratio displays (in other words, mobile displays in vertical). And, those videos were showing the faces of the people that were in the video singing. 
 
 But, the point is that manually editing a video to follow faces is not a nice task. Then, I asked myself how do the people at Spotify did this.
 
-So, here it is. This project aims to crop a video following faces. In fact, it can be used to any w:h ratio, where w is width and h is height.
+So, this is my approach to solve this problem. This project aims to crop a video following faces. In fact, it can be used to any w:h ratio, where w is width and h is height.
+
+Disclaimer: For now, it only works properly when w < h.
 
 For instance, imagine you have this video:
 <p align="center">
@@ -43,3 +45,4 @@ There are basically three parameters:
 * There's a problem with the function Cropper.limitBoundaries(). It is not well defined and sometimes, it change the 
 initial defined size of the frames. It implies that if we want to save the video using cv2.VideoWriter(), the video is not well written.
     I will solved asap.
+* The cropper performs correctly when the w < h
