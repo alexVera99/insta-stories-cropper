@@ -56,7 +56,6 @@ while True:
             # By the moment, only for the first face detected
             break
     video_writer.write(img)
-    print(img.shape)
     cv2.imshow("Image", img)
     cv2.waitKey(1)
 
