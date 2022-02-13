@@ -3,6 +3,7 @@
 
 # Video folder
 /videos/large_videos
+/videos/output
 
 # pycache
 /__pycache__
