@@ -42,7 +42,4 @@ There are basically three parameters:
 * filename: It's the filename of the video we want to process.
 
 # Known issues
-* There's a problem with the function Cropper.limitBoundaries(). It is not well defined and sometimes, it change the 
-initial defined size of the frames. It implies that if we want to save the video using cv2.VideoWriter(), the video is not well written.
-    I will solved it asap.
 * The cropper performs correctly when the w < h
