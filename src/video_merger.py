@@ -4,7 +4,7 @@ class VideoMerger:
     def __init__(self) -> None:
         self.bash_code_executor = bash_executor.BashExecutor()
 
-    def extract_audio(self, input_video_filename, input_audio_filename, output_video_filename):
+    def merge_video_and_audio(self, input_video_filename, input_audio_filename, output_video_filename):
         # Understanding flags:
         # -loglevel: to print only errors to stderr (source: https://stackoverflow.com/questions/35169650/differentiate-between-error-and-standard-terminal-log-with-ffmpeg-nodejs)
         # -y: accept overwrite automatically
@@ -26,7 +26,7 @@ def main():
     
     my_video_merger = VideoMerger()
     
-    my_video_merger.extract_audio(input_video_filename, input_audio_filename, output_video_filename)
+    my_video_merger.merge_video_and_audio(input_video_filename, input_audio_filename, output_video_filename)
     
 if __name__ == "__main__":
     main()
