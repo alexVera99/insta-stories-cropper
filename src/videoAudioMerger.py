@@ -1,8 +1,8 @@
-import bash_executor
+import bashExecutor
 
-class VideoMerger:
+class VideoAudioMerger:
     def __init__(self) -> None:
-        self.bash_code_executor = bash_executor.BashExecutor()
+        self.bash_code_executor = bashExecutor.BashExecutor()
 
     def merge_video_and_audio(self, input_video_filename, input_audio_filename, output_video_filename):
         # Understanding flags:
@@ -24,7 +24,7 @@ def main():
     input_audio_filename='../videos/output/3.aac'
     output_video_filename='../videos/output/output_video_audio.mp4'
     
-    my_video_merger = VideoMerger()
+    my_video_merger = VideoAudioMerger()
     
     my_video_merger.merge_video_and_audio(input_video_filename, input_audio_filename, output_video_filename)
     

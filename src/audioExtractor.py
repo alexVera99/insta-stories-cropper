@@ -1,9 +1,9 @@
-import bash_executor
+import bashExecutor
 
 class AudioExtractor:
     
     def __init__(self) -> None:
-        self.bash_code_executor = bash_executor.BashExecutor()
+        self.bash_code_executor = bashExecutor.BashExecutor()
     
     def extract_audio(self, input_video_filename, output_audio_filename):
         command = f"ffmpeg -loglevel error -y -i {input_video_filename} -vn -acodec copy {output_audio_filename}"
