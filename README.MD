@@ -1,5 +1,5 @@
 # Description
-This project borns while using Spotify. You may have seen that while listening some songs, the original video of the song appears also. The point is that such videos where not edited for 9:16 ratio displays (in other words, mobile displays in vertical). And, those videos were showing the faces of the people that were in the video singing. 
+This project borns while using Spotify. You may have seen that while listening some songs, the original video of the song appears also. The point is that such videos where not edited for 9:16 ratio displays (in other words, mobile displays in vertical). And, those videos were showing the faces of the people that were in the video singing.
 
 But, the point is that manually editing a video to follow faces is not a nice task. Then, I asked myself how do the people at Spotify did this.
 
@@ -27,7 +27,7 @@ To use it, simply type in your terminal
 `bash setup.sh`
 
 # Executing
-You can run the `main.py` file as any other python file, but make sure to enable the virual environment by typing the command `source venv/bin/activate`. 
+You can run the `main.py` file as any other python file, but make sure to enable the virual environment by typing the command `source venv/bin/activate`.
 
 Also, you can use the bash script `run.sh`, which executes the `main.py` file using the virtual environment setup.
 
@@ -38,7 +38,7 @@ To use it, simply type in your terminal
 # Parameters
 There are basically three parameters:
 * ratio: It's the ratio of the output video
-* th: It's a threshold parameter that controls the time coherence of the video. This threshold is used to control when the position of the detected face change a little bit. In other words, if the distance from current and previous position is larger than this threshold, the position is updated to the current one. However, if the such distance is smaller than the threshold, then it is kept in a history of positions, and the mean of the history is used as the final position. 
+* th: It's a threshold parameter that controls the time coherence of the video. This threshold is used to control when the position of the detected face change a little bit. In other words, if the distance from current and previous position is larger than this threshold, the position is updated to the current one. However, if the such distance is smaller than the threshold, then it is kept in a history of positions, and the mean of the history is used as the final position.
 * filename: It's the filename of the video we want to process.
 
 # Known issues
