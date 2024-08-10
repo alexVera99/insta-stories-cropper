@@ -1,7 +1,7 @@
 name: "Continuous integration"
 
 env:
-  PYTHON_VERSION: "3.9.6"
+  PYTHON_VERSION: "3.9.12"
 
 on:
   push:
