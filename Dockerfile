@@ -2,7 +2,7 @@ FROM python:3.8.8
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
+COPY src/requirements.txt ./
 
 RUN apt-get update ##
 RUN apt-get install ffmpeg libsm6 libxext6  -y

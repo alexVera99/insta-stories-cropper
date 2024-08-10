@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "insta_stories_cropper"
+version = "0.0.1"
+authors = [
+  { name="Alexander Vera" }
+]
+description = "Instagram stories cropper"
+readme = "README.md"
+requires-python = ">=3.9.6"

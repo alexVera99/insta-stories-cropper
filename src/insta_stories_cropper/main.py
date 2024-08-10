@@ -9,7 +9,7 @@ def main() -> None:
     # Parameters
     ratio = [9, 16]  # [w, h]
     th = 50
-    filename = "../videos/1.mp4"
+    filename = "../../videos/1.mp4"
 
     # Capturing the first frame
     cap = cv2.VideoCapture(filename)

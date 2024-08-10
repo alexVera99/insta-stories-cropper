@@ -52,4 +52,4 @@ class Cropper:
         )
         # print(self.x_min, self.x_max, self.y_min, self.y_max)
 
-        return img[y_min : y_max + 1, x_min : x_max + 1, :]
+        return img[y_min:y_max, x_min:x_max, :]
