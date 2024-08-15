@@ -1,7 +1,7 @@
 import cv2
-import faceDetector
-import numpy as np
 from cropper import Cropper
+from insta_stories_cropper.face_detection.face_detector import FaceDetector
+from insta_stories_cropper.face_detection.visualization import BoundingBoxDrawer
 from timeCoherenceCorrector import TimeCoherenceCorrector
 
 
@@ -28,7 +28,9 @@ def main() -> None:
     corrector = TimeCoherenceCorrector(c_img, th)
 
     # Initializing the face detector
-    detector = faceDetector.faceDetector()
+    detector = FaceDetector()
+    bounding_box_drawer = BoundingBoxDrawer()
+    enable_bounding_box_drawing = False
 
     # Create a video writer to save the resulting video
     video_writer = cv2.VideoWriter(
@@ -42,19 +44,20 @@ def main() -> None:
         if not success:
             break
 
-        img, bboxs = detector.findFaces(img, False)
+        bounding_boxes = detector.detect(img)
+
+        if enable_bounding_box_drawing:
+            img = bounding_box_drawer.draw(img, bounding_boxes)
 
         # When no face detections
-        if bboxs == []:
+        if not bounding_boxes:
             c_bbox = c_img
             img = cropper.crop(img, c_bbox)
 
         else:
             # Only for the first detection
-            for bbox in bboxs:
-                cur_c_bbox = np.array(bbox[2])
-
-                c_bbox = corrector.correct(cur_c_bbox)
+            for bbox in bounding_boxes:
+                c_bbox = corrector.correct(bbox.center)
 
                 img = cropper.crop(img, c_bbox)
 
