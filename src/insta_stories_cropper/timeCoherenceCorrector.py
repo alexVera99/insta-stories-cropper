@@ -2,7 +2,7 @@ import numpy as np
 
 
 class TimeCoherenceCorrector:
-    def __init__(self, center_image: int, threshold: int = 50):
+    def __init__(self, center_image: list[int], threshold: int = 50):
         self.c_bboxs_hist = np.array([center_image])
         self.th = threshold
 
