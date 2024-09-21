@@ -9,7 +9,11 @@ def main() -> None:
     filename = Path("../../videos/1.mp4")
     output_filename = Path("../../videos/output/filename.avi")
 
-    app = App(Parameters(time_coherence_history_threshold=50))
+    app = App(
+        Parameters(
+            time_coherence_history_threshold=50, enable_bounding_box_drawing=False
+        )
+    )
 
     app.crop(filename, output_filename, ratio)
 
