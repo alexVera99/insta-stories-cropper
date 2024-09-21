@@ -1,4 +1,7 @@
+from pathlib import Path
+
 import cv2
+from insta_stories_cropper.app.exceptions import DirectoryNotFoundError
 from insta_stories_cropper.app.parameters import Parameters
 from insta_stories_cropper.cropper import Cropper
 from insta_stories_cropper.face_detection.face_detector import FaceDetector
@@ -12,9 +15,11 @@ class App:
             parameters.time_coherence_history_threshold
         )
 
-    def crop(self, filename: str, ratio: list[int]) -> None:
+    def crop(
+        self, input_filename: Path, output_filename: Path, ratio: list[int]
+    ) -> None:
         # Capturing the first frame
-        cap = cv2.VideoCapture(filename)
+        cap = cv2.VideoCapture(str(input_filename.absolute()))
         success, img = cap.read()
         # Capturing some frame information
         h_img, w_img, c_img = img.shape
@@ -35,8 +40,11 @@ class App:
         enable_bounding_box_drawing = False
 
         # Create a video writer to save the resulting video
+        if not output_filename.exists():
+            raise DirectoryNotFoundError(output_filename.parent)
+
         video_writer = cv2.VideoWriter(
-            "videos/output/filename.avi",
+            str(output_filename),
             cv2.VideoWriter_fourcc(*"MJPG"),
             fps=fps,
             frameSize=(int(cropper.width), int(cropper.height)),
