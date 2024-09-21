@@ -14,6 +14,7 @@ class App:
         self.time_coherence_history_threshold = (
             parameters.time_coherence_history_threshold
         )
+        self.enable_bounding_box_drawing = parameters.enable_bounding_box_drawing
 
     def crop(
         self, input_filename: Path, output_filename: Path, ratio: list[int]
@@ -37,7 +38,6 @@ class App:
         # Initializing the face detector
         detector = FaceDetector()
         bounding_box_drawer = BoundingBoxDrawer()
-        enable_bounding_box_drawing = False
 
         # Create a video writer to save the resulting video
         if not output_filename.exists():
@@ -56,7 +56,7 @@ class App:
 
             bounding_boxes = detector.detect(img)
 
-            if enable_bounding_box_drawing:
+            if self.enable_bounding_box_drawing:
                 img = bounding_box_drawer.draw(img, bounding_boxes)
 
             # When no face detections
