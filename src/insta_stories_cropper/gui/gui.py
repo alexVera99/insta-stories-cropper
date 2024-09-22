@@ -1,3 +1,7 @@
+from pathlib import Path
+
+from insta_stories_cropper.app.app import App
+from insta_stories_cropper.app.parameters import Parameters
 from insta_stories_cropper.gui.parameters import InputParameters
 from pyforms.basewidget import BaseWidget
 from pyforms.controls import ControlButton
@@ -5,9 +9,14 @@ from pyforms.controls import ControlDir
 from pyforms.controls import ControlFile
 
 
-class ComputerVisionAlgorithm(BaseWidget):
+class Gui(BaseWidget):
     def __init__(self, *args: tuple, **kwargs: dict) -> None:
         super().__init__("Insta stories cropper")
+        self.app = App(
+            Parameters(
+                time_coherence_history_threshold=50, enable_bounding_box_drawing=False
+            )
+        )
 
         # Definition of the forms fields
         self._videofile = ControlFile("Video")
@@ -37,8 +46,14 @@ class ComputerVisionAlgorithm(BaseWidget):
         if not self.input_parameters.validate():
             raise Exception("Missing input parameters")
 
+        filename = Path(str(self.input_parameters.filename))
+        output_filename = self.__generate_output_filename(
+            filename, Path(str(self.input_parameters.output_folder))
+        )
 
-if __name__ == "__main__":
-    from pyforms import start_app
+        self.app.crop(filename, output_filename, [9, 16])
 
-    start_app(ComputerVisionAlgorithm)
+    def __generate_output_filename(
+        self, input_filename: Path, output_folder: Path
+    ) -> Path:
+        return output_folder / f"{input_filename.name}_cropped.avi"
