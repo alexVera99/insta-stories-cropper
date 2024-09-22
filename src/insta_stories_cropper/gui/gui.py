@@ -1,18 +1,8 @@
-from dataclasses import dataclass
-
+from insta_stories_cropper.gui.parameters import InputParameters
 from pyforms.basewidget import BaseWidget
 from pyforms.controls import ControlButton
 from pyforms.controls import ControlDir
 from pyforms.controls import ControlFile
-
-
-@dataclass
-class InputParameters:
-    filename: str | None = None
-    output_folder: str | None = None
-
-    def validate(self) -> bool:
-        return self.filename is not None and self.output_folder is not None
 
 
 class ComputerVisionAlgorithm(BaseWidget):
