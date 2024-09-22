@@ -1,4 +1,5 @@
-numpy
+pyforms-gui
 mediapipe
 opencv-python
 pre-commit
+numpy

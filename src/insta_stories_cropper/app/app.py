@@ -40,7 +40,7 @@ class App:
         bounding_box_drawer = BoundingBoxDrawer()
 
         # Create a video writer to save the resulting video
-        if not output_filename.exists():
+        if not output_filename.parent.exists():
             raise DirectoryNotFoundError(output_filename.parent)
 
         video_writer = cv2.VideoWriter(
