@@ -2,6 +2,7 @@ from pathlib import Path
 
 from insta_stories_cropper.app.app import App
 from insta_stories_cropper.app.parameters import Parameters
+from insta_stories_cropper.gui.exceptions import InvalidInputException
 from insta_stories_cropper.gui.parameters import InputParameters
 from pyforms.basewidget import BaseWidget
 from pyforms.controls import ControlButton
@@ -44,7 +45,7 @@ class Gui(BaseWidget):
 
     def __run_event(self) -> None:
         if not self.input_parameters.validate():
-            raise Exception("Missing input parameters")
+            raise InvalidInputException()
 
         filename = Path(str(self.input_parameters.filename))
         output_filename = self.__generate_output_filename(
